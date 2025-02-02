@@ -4,10 +4,11 @@
 #define SHIFT 7
 #define STORE 6
 
-void store();
+void show(int *pattern);
 int happy[] = {0, 16, 38, 32, 32, 38, 16, 0};
 int SKULL[] = {56, 110, 207, 191, 239, 207, 63, 62};
 int heart[] = {28, 62, 126, 252, 252, 126, 62, 28};
+
 
 void setup()
 {
@@ -22,7 +23,6 @@ void setup()
 
 void loop()
 {
-    // Check if there is any serial data available.
     if (Serial.available()) {
         // Read the incoming string until the closing brace '}'.
         String s = Serial.readStringUntil('}');
@@ -50,19 +50,20 @@ void loop()
         }
     }
 
-    // Use the parsed numbers to control the LED matrix.
-    for (int i = 0; i < 8; i++)
-    {
-            shiftOut(DATA, SHIFT, MSBFIRST, ~happy[i]);
-            shiftOut(DATA, SHIFT, MSBFIRST, 128 >> i);
-            store();
-    }
+    show(happy);
 }
 
-void store()
+
+
+void show(int *pattern)
 {
-  digitalWrite(STORE, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(STORE, LOW);
-  delayMicroseconds(10);
+    for (int i = 0; i < 8; i++)
+    {
+        shiftOut(DATA, SHIFT, MSBFIRST, ~pattern[i]);
+        shiftOut(DATA, SHIFT, MSBFIRST, 128 >> i);
+        digitalWrite(STORE, HIGH);
+        delayMicroseconds(10);
+        digitalWrite(STORE, LOW);
+        delayMicroseconds(10);
+    }
 }
