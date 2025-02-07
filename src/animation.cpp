@@ -28,8 +28,7 @@
 //     }
 // }
 
-// void show(int *pattern, int duration)
-// {
+// void show(int *pattern, int duration) {
 //     unsigned long start = millis();
 //     while (millis() - start < duration)
 //     {
