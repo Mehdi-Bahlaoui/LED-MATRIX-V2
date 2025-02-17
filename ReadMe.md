@@ -87,4 +87,4 @@ ser = serial.Serial('COM3', 9600, timeout=1)
 This project is licensed under the MIT License.
 
 ## Contact
-For questions or contributions, please contact the maintainer.
+For questions or contributions, please contact mehdi-bahlaoui.
