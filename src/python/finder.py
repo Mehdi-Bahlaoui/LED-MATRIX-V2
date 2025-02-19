@@ -46,10 +46,10 @@ class LEDMatrix(QWidget):
         row, col, _, _ = self.layout().getItemPosition(index)
         if button.styleSheet() == "border-radius: 5px; background-color: red;":
             button.setStyleSheet("border-radius: 5px; background-color: white;")
-            found[col] = found[col] - 2**row
+            found[col] = found[col] - pow(2,row)
         else:
             button.setStyleSheet("border-radius: 5px; background-color: red;")
-            found[col] = found[col] + 2**row
+            found[col] = found[col] + pow(2,row)
         self.updateLabel()
 
     def updateLabel(self):
