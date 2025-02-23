@@ -3,7 +3,7 @@
 ## Overview
 The LED Matrix v2 project brings together firmware code for controlling an LED matrix and a dedicated Python interface for easier interaction.
 This Project is currently divided into two parts:
-![LED Matrix Image](assets/Heart.png)
+![LED Matrix Image](assets/Matrix%20pcb%20-%20edited.png)
 
 1. The Code
 2. Python Interface
