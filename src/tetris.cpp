@@ -7,7 +7,7 @@
 #define RIGHT 8
 #define LEFT 9
 
-int speed = 200;
+int speed = 500;
 unsigned long lastUpdateTime = 0;
 unsigned long lastInputTime = 0;
 const int debounceDelay = 200;
@@ -233,6 +233,7 @@ void clear()
     }
 }
 
+//function for displaying any pattern
 void show(int *pattern)
 {
     for (int i = 0; i < 8; i++)
