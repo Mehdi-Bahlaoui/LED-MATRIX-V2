@@ -17,8 +17,6 @@ This section contains the firmware code written for the LED matrix. The code is 
 
 ### Project Structure
 - **src/**: Contains the main firmware source files.
-- **platformio.ini**: Configuration file for PlatformIO, defining environment settings and build parameters.
-
 ---
 
 ## Part 2: Python Interface
