@@ -7,6 +7,8 @@
 unsigned long speed = 500;
 unsigned long lastUpdateTime = 0;
 
+char direction = 'r';
+
 void show(uint8_t *pattern);
 
 struct Snake
@@ -40,18 +42,28 @@ void setup(){
 
 void loop(){
 
-unsigned long currentTime = millis();
+    unsigned long currentTime = millis();
 
-// Game update
-if (currentTime - lastUpdateTime >= speed)
-{
-    // updateGame();
-    lastUpdateTime = currentTime;
-}
+    // Game update
+    if (currentTime - lastUpdateTime >= speed)
+    {
+        // updateGame();
+        //TODO: apply saved direction to snake
+        lastUpdateTime = currentTime;
+    }
 
-// Rendering
-show(snake.pos);
-show(apple.pos);
+    // Rendering
+    show(snake.pos);
+    show(apple.pos);
+
+    // getting direction if any key is pressed
+    if (Serial.available()) {
+        char input = Serial.read();
+        if (input == 'r' || input == 'l' || input == 'u' || input == 'd') {
+            direction = input;
+            Serial.println(String(direction));
+        }
+    }
 }
 
 
